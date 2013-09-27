@@ -4,8 +4,8 @@ int deck[] = new int[len];
 
 int step = 0;
 
-//int colors[] = { color(255), color(128), color(0, 255, 0), color(255, 255, 0) };
-int colors[] = { color(255), color(0) };
+int colors[] = { color(255, 0, 0), color(0, 255, 0), color(0, 0, 255), color(255) };
+//int colors[] = { color(255), color(0) };
 
 void setup() {
   size(zoom*len, 64);
@@ -45,14 +45,7 @@ void keyPressed() {
 void draw_deck() {
   background(0);
   for(int i = 0; i < len; i++) {
-    if(deck[i] >= len/4 && deck[i] < 3*len/4) {
-      //println("deck["+deck[i]+"] is black");
-      fill(0);
-    } else {
-      //println("deck["+deck[i]+"] is white");
-      fill(255);
-    }
-    
+    fill(colors[deck[i]/13%colors.length]);
     rect(i*zoom, 0, i*zoom+zoom, height);
   }
 }
